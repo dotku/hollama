@@ -14,6 +14,7 @@ COPY . .
 RUN chown -R appuser:appgroup /app
 
 # Install dependencies and build as root
+RUN npm install --no-save @cloudflare/workerd-linux-64
 RUN npm ci && npm run build
 
 # Switch to non-root user
